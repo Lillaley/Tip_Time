@@ -3,6 +3,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tiptime.R
 import com.example.tiptime.databinding.ActivityMainBinding
+import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,5 +30,7 @@ class MainActivity : AppCompatActivity() {
         if (roundUp) {
             tip = kotlin.math.ceil(tip)
         }
+        val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
+        binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
     }
 }
